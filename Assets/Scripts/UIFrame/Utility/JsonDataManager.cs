@@ -49,7 +49,7 @@ namespace UIFrame
             //将Panel的配置文件进行解析
             widgetDate = JsonUtility.FromJson<JsonWidgetsModel>(widgetConfig.text);
 
-            //将panelData转化为字典型
+            //将widgetData转化为字典型
             for (int i = 0; i < widgetDate.AllData.Length; i++)
             {
                 //创建一个字典

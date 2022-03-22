@@ -7,8 +7,10 @@ using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using Photon.Pun.Demo.Cockpit;
 using Photon.Realtime;
 using UIFrame;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -45,7 +47,15 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log("创建房间成功");
         UIManager.Instance.PushUI("RoomPanel");
     }
-    
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        base.OnJoinRoomFailed(returnCode, message);
+        infoMessage = message;
+        //显示提示框
+        UIManager.Instance.PushUI("InfoPanel");
+    }
+
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
@@ -84,5 +94,20 @@ public class GameManager : MonoBehaviourPunCallbacks
         RoomPanelModule roomPanel = UIManager.Instance.GetUIModuleByName("RoomPanel") as RoomPanelModule;
         //更新玩家列表
         roomPanel.UpdatePlayerUIMsg();
+    }
+
+    public override void OnPlayerPropertiesUpdate(Player target, Hashtable changedProps)
+    {
+        base.OnPlayerPropertiesUpdate(target, changedProps);
+        object res = null;
+        changedProps.TryGetValue(GameConst.READY_PROPERTY, out res);
+        if (res == null)
+        {
+            res = false;
+        }
+        //获取房间模块
+        RoomPanelModule roomPanel = UIManager.Instance.GetUIModuleByName("RoomPanel") as RoomPanelModule;
+        //调用房间模块方法
+        roomPanel.SetPlayerReadyState(target.ActorNumber, (bool)res );
     }
 }

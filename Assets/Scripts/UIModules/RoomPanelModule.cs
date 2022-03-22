@@ -17,6 +17,16 @@ public class RoomPanelModule : UIModuleBase
     {
         controller.UpdatePlayerMsg();
     }
+    
+    /// <summary>
+    /// 设置玩家准备状态
+    /// </summary>
+    /// <param name="playerID"></param>
+    /// <param name="isReady"></param>
+    public void SetPlayerReadyState(int playerID, bool isReady)
+    {
+        controller.SetPlayerReadyState(playerID,isReady);
+    }
 
     public override void OnEnter()
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Photon.Pun;
 using Photon.Realtime;
 using UIFrame;
@@ -54,5 +55,19 @@ public class RoomPanelController : UIControllerBase
     {
         ClearPlayerUIList();
         GeneratePlayerUIList();
+    }
+
+    /// <summary>
+    /// 设置玩家准备状态
+    /// </summary>
+    /// <param name="playerID"></param>
+    /// <param name="isReady"></param>
+    public void SetPlayerReadyState(int playerID, bool isReady)
+    {
+        if (!roomPlayers.ContainsKey(playerID))
+        {
+            return;
+        }
+        roomPlayers[playerID].GetComponent<PlayerBehaviour>().SetReadyStateUI(isReady);
     }
 }
