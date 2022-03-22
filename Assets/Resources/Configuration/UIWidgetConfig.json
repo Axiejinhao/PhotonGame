@@ -1,0 +1,17 @@
+﻿{
+  "AllData":[
+    {
+      "SceneName":"LobbyScene",
+      "Data":[
+        {
+          "WidgetName":"RoomInfo",
+          "WidgetPath":"LobbyPrefabs/RoomInfo" 
+        },
+        {
+          "WidgetName":"PlayerInfo",
+          "WidgetPath":"LobbyPrefabs/PlayerInfo"
+        }
+      ]
+    }
+  ]
+}

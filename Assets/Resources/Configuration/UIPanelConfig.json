@@ -1,0 +1,29 @@
+﻿{
+  "AllData":[
+    {
+      "SceneName":"LobbyScene",
+      "Data":[
+        {
+          "PanelName":"TopPanel",
+          "PanelPath":"LobbyUIPanels/TopPanel" 
+        },
+        {
+          "PanelName":"MainPanel",
+          "PanelPath":"LobbyUIPanels/MainPanel"
+        },
+        {
+          "PanelName":"RoomPanel",
+          "PanelPath":"LobbyUIPanels/RoomPanel"
+        },
+        {
+          "PanelName":"RoomListPanel",
+          "PanelPath":"LobbyUIPanels/RoomListPanel"
+        },
+        {
+          "PanelName":"InfoPanel",
+          "PanelPath":"LobbyUIPanels/InfoPanel"
+        }
+      ]
+    }
+  ]
+}

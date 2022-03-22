@@ -1,0 +1,21 @@
+﻿{
+  "AllData":[
+    {
+      "SceneName":"HeroScene",
+      "Data":[
+        {
+          "HeroIndex": 1,
+          "HeroPath":"PlayerPrefabs/human_warrior_Rig" 
+        },
+        {
+          "HeroIndex": 2,
+          "HeroPath":"PlayerPrefabs/human_archer_Rig"
+        },
+        {
+          "HeroIndex": 3,
+          "HeroPath":"PlayerPrefabs/human_wizard_Rig"
+        }
+      ]
+    }
+  ]
+}
