@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 22497246}
   - component: {fileID: 22209220}
   - component: {fileID: 11437134}
+  - component: {fileID: 114469707873791770}
   m_Layer: 5
   m_Name: RoomInfo
   m_TagString: Untagged
@@ -480,3 +481,14 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 104980}
   m_IsPrefabParent: 1
+--- !u!114 &114469707873791770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3c3205a3b7c214fa3cc3a3a4beaf53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

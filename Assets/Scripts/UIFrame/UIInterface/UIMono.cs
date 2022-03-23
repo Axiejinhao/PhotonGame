@@ -9,7 +9,7 @@ namespace UIFrame
 {
     public class UIMono : MonoBehaviour,
         IRectTransform, IText, IInputField,
-        IImage, IRawImage, IButton
+        IImage, IRawImage, IButton, IGameObject
     {
         #region Component
 
@@ -120,5 +120,15 @@ namespace UIFrame
         }
 
         #endregion
+
+        #region IGameObject
+
+        public void SetGameObjectActive(bool active)
+        {
+            gameObject.SetActive(active);
+        }
+
+        #endregion
+
     }
 }

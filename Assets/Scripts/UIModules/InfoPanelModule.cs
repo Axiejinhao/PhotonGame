@@ -14,7 +14,7 @@ public class InfoPanelModule : UIModuleBase
     {
         base.OnEnter();
         _canvasGroup.alpha = 1;
-        controller.SetInfoText(GameManager.Instance.infoMessage);
+        controller.SetInfoText(LobbyManager.Instance.infoMessage);
     }
 
     public override void OnPause()

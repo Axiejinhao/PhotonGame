@@ -12,16 +12,20 @@ using Photon.Realtime;
 using UIFrame;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-public class GameManager : MonoBehaviourPunCallbacks
+public class LobbyManager : MonoBehaviourPunCallbacks
 {
-    public static GameManager Instance;
+    public static LobbyManager Instance;
     public string infoMessage;
-    
+    //房间信息
+    private RoomPanelModule roomPanel;
+    //大厅信息
+    private RoomListPanelModule roomListPanel;
+
     private void Awake()
     {
         Instance = this;
         //当前对象在过渡场景时不用销毁
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
         //支持后台运行
         Application.runInBackground = true;
         //支持网络场景同步
@@ -32,6 +36,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         //连接Photon云服务器
         PhotonNetwork.ConnectUsingSettings();
+        roomPanel = UIManager.Instance.GetUIModuleByName("RoomPanel") as RoomPanelModule;
+        roomListPanel = UIManager.Instance.GetUIModuleByName("RoomListPanel") as RoomListPanelModule;
+
     }
 
     public override void OnConnectedToMaster()
@@ -48,6 +55,15 @@ public class GameManager : MonoBehaviourPunCallbacks
         UIManager.Instance.PushUI("RoomPanel");
     }
 
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        base.OnCreateRoomFailed(returnCode, message);
+        //储存失败原因信息
+        infoMessage = message;
+        //显示提示框
+        UIManager.Instance.PushUI("InfoPanel");
+    }
+
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         base.OnJoinRoomFailed(returnCode, message);
@@ -60,6 +76,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         UIManager.Instance.PushUI("RoomPanel");
+        //更新玩家列表
+        roomPanel.SetPlayerReadyStateHash(PhotonNetwork.LocalPlayer.ActorNumber, false);
+    }
+
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom();
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -81,19 +104,19 @@ public class GameManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         base.OnPlayerEnteredRoom(newPlayer);
-        //获取房间模块
-        RoomPanelModule roomPanel = UIManager.Instance.GetUIModuleByName("RoomPanel") as RoomPanelModule;
         //更新玩家列表
         roomPanel.UpdatePlayerUIMsg();
+        //显示开始游戏按钮
+        roomPanel.ShowStartGameBtn();
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         base.OnPlayerLeftRoom(otherPlayer);
-        //获取房间模块
-        RoomPanelModule roomPanel = UIManager.Instance.GetUIModuleByName("RoomPanel") as RoomPanelModule;
         //更新玩家列表
         roomPanel.UpdatePlayerUIMsg();
+        //显示开始游戏按钮
+        roomPanel.ShowStartGameBtn();
     }
 
     public override void OnPlayerPropertiesUpdate(Player target, Hashtable changedProps)
@@ -105,9 +128,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             res = false;
         }
-        //获取房间模块
-        RoomPanelModule roomPanel = UIManager.Instance.GetUIModuleByName("RoomPanel") as RoomPanelModule;
-        //调用房间模块方法
+         //调用房间模块方法
         roomPanel.SetPlayerReadyState(target.ActorNumber, (bool)res );
+        //显示开始游戏按钮
+        roomPanel.ShowStartGameBtn();
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        base.OnRoomListUpdate(roomList);
+        //临时存储当前房间的信息
+        roomListPanel.SetRoomInfos(roomList);
     }
 }

@@ -74,8 +74,6 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
-05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 ab3103ec9fda8f4d5da8a71c4ea7c413 Assembly-CSharp.dll:Photon.Pun.Demo.SlotRacer.Utils.BezierSpline
 b30e940f68e6b99aa791b176c757d1db Assembly-CSharp.dll:.ETFXProjectileScript
 c3a9e82914d368e0b53a5de37fb3627a Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.CountOfPlayersOnMasterProperty
@@ -311,7 +309,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 71b949d44ebd93b1a54c5df9f2c45da5 Assembly-CSharp.dll:Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
 8ec94b2780e324ed558b27d759ada3b7 Assembly-CSharp.dll:Ricimi.Tooltip
 755add5ef3f03f1ba2f6bdb228dae24c Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyMainPanel
-227579410d588c18a5044caa228f447b Assembly-CSharp.dll:.GameManager
+227579410d588c18a5044caa228f447b Assembly-CSharp.dll:.LobbyManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Photon.Pun.Demo.Procedural.Cluster
 e7f268767823a8cd19911699aa31f1ea Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.AppVersionProperty
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
@@ -426,7 +424,7 @@ d9a45f500670681f30ff59a69a580fa0 Assembly-CSharp.dll:Photon.Pun.Demo.Procedural.
 647c55fbaf51d7e66eed7cb525fded3d Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.Spaceship
 37744cb43f57f2d3767fd30d0449bd0d Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Forms.ConnectToRegionUIForm
 6eb19a2e1468cdb456ab6ccbe83c51c7 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.BoolInputField
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerBehaviour
+870f3d295f32cee945162e235cf6bc08 Assembly-CSharp.dll:.PlayerBehaviour
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.InfoPanelModule
 5d6b6d35cd1f8c678720beec79b50b33 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.CountdownTimer
 7fc24538faf35d45c52c6dd212b105b2 Assembly-CSharp.dll:Ricimi.SceneTransition
@@ -468,3 +466,5 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.RoomBehaviour
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.HumanGameManager

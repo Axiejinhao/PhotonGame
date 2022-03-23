@@ -1,4 +1,5 @@
-﻿using UIFrame;
+﻿using Photon.Pun;
+using UIFrame;
 
 public class RoomPanelModule : UIModuleBase
 {
@@ -23,9 +24,24 @@ public class RoomPanelModule : UIModuleBase
     /// </summary>
     /// <param name="playerID"></param>
     /// <param name="isReady"></param>
+    public void SetPlayerReadyStateHash(int playerID, bool isReady)
+    {
+        controller.SetPlayerReadyStateHash(playerID,isReady);
+    }
+    
+    /// <summary>
+    /// 设置玩家准备状态
+    /// </summary>
+    /// <param name="playerID"></param>
+    /// <param name="isReady"></param>
     public void SetPlayerReadyState(int playerID, bool isReady)
     {
         controller.SetPlayerReadyState(playerID,isReady);
+    }
+
+    public void ShowStartGameBtn()
+    {
+        controller.ShowStartGameBtn();
     }
 
     public override void OnEnter()

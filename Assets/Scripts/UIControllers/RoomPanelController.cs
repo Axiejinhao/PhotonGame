@@ -13,14 +13,12 @@ public class RoomPanelController : UIControllerBase
     {
         base.ControllerStart();
         roomPlayers = new Dictionary<int, GameObject>();
-        BindEvent();
+        crtModule.FindCurrentModuleWidget("StartGameButton_F").AddOnClickListener(() =>
+        {
+            PhotonNetwork.LoadLevel("CompleteMainScene");
+        });
     }
 
-    private void BindEvent()
-    {
-        
-    }
-    
     /// <summary>
     /// 清空玩家列表
     /// </summary>
@@ -69,5 +67,38 @@ public class RoomPanelController : UIControllerBase
             return;
         }
         roomPlayers[playerID].GetComponent<PlayerBehaviour>().SetReadyStateUI(isReady);
+    }
+
+    public void SetPlayerReadyStateHash(int playerID, bool isReady)
+    {
+        if (!roomPlayers.ContainsKey(playerID))
+        {
+            return;
+        }
+        roomPlayers[playerID].GetComponent<PlayerBehaviour>().SetPlayerReadyState(isReady);
+    }
+    
+    /// <summary>
+    /// 显示游戏开始按钮
+    /// </summary>
+    public void ShowStartGameBtn()
+    {
+        //设置按钮是否显示
+        crtModule.FindCurrentModuleWidget("StartGameButton_F").SetGameObjectActive(
+            PhotonNetwork.IsMasterClient && AllPlayerHasReady());
+
+    }
+
+    private bool AllPlayerHasReady()
+    {
+        foreach (var item in roomPlayers)
+        {
+            if (!item.Value.GetComponent<PlayerBehaviour>().isReady)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

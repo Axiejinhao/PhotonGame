@@ -12,11 +12,6 @@ public class InfoPanelControllerL : UIControllerBase
         });
     }
 
-    private void BindEvent()
-    {
-        
-    }
-
     public void SetInfoText(string text)
     {
         crtModule.FindCurrentModuleWidget("Text_F").SetTextText(text);

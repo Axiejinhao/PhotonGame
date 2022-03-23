@@ -21,6 +21,9 @@ public class PlayerBehaviour : MonoBehaviour
     private GameObject hasReadySign;
 
     #endregion
+    
+    //当前玩家是否准备
+    public bool isReady=false;
 
     private void Awake()
     {
@@ -42,16 +45,8 @@ public class PlayerBehaviour : MonoBehaviour
         _player = player;
         playerName.text = player.NickName;
         color.color = GameConst.PLAYER_COLORS[(player.ActorNumber-1) % GameConst.PLAYER_COLORS.Length];
-        if (player.IsLocal)
-        {
-            readyButton.gameObject.SetActive(true);
-            notReadyButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            readyButton.gameObject.SetActive(false);
-            notReadyButton.gameObject.SetActive(true);
-        }
+        //关于准备状态
+        SetReadyStateUI(GetPlayerReadyState());
     }
 
     /// <summary>
@@ -64,15 +59,25 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
         bool crtReadyState = GetPlayerReadyState();
+        SetPlayerReadyState(!crtReadyState);
+    }
+
+    /// <summary>
+    /// 设置玩家准备状态
+    /// </summary>
+    /// <param name="isReady"></param>
+    /// <returns></returns>
+    public void SetPlayerReadyState(bool isReady)
+    {
         //创建Hashtable
         Hashtable hashtable = new Hashtable();
         //添加属性
-        hashtable.Add(GameConst.READY_PROPERTY,!crtReadyState);
+        hashtable.Add(GameConst.READY_PROPERTY,isReady);
         _player.SetCustomProperties(hashtable);
         //触发自己的UI状态
-        SetReadyStateUI(!crtReadyState);
+        SetReadyStateUI(isReady);
     }
-
+    
     /// <summary>
     /// 获取玩家的准备状态
     /// </summary>
@@ -85,10 +90,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             return false;
         }
-        else
-        {
-            return (bool) res;
-        }
+        return (bool) res;
     }
 
     /// <summary>
@@ -97,6 +99,7 @@ public class PlayerBehaviour : MonoBehaviour
     /// <param name="isReady"></param>
     public void SetReadyStateUI(bool isReady)
     {
+        this.isReady = isReady;
         hasReadySign.SetActive(isReady);
         if (!_player.IsLocal)
         {

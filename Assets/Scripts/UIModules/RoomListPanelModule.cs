@@ -1,12 +1,25 @@
-﻿using UIFrame;
+﻿using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
+using UIFrame;
 
 public class RoomListPanelModule : UIModuleBase
 {
+    private RoomListPanelController controller;
     public override void Awake()
     {
         base.Awake();
-        var controller = new RoomListPanelController();
+        controller = new RoomListPanelController();
         BindController(controller);
+    }
+
+    /// <summary>
+    /// 设置房间信息列表
+    /// </summary>
+    /// <param name="roomInfos"></param>
+    public void SetRoomInfos(List<RoomInfo> roomInfos)
+    {
+        controller.UpdateRoomList(roomInfos);
     }
     
     public override void OnEnter()
@@ -26,7 +39,10 @@ public class RoomListPanelModule : UIModuleBase
     {
         base.OnResume();
         _canvasGroup.alpha = 1;
-
+        if (!PhotonNetwork.InLobby)
+        {
+            PhotonNetwork.JoinLobby();
+        }
     }
 
     public override void OnExit()

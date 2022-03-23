@@ -20,7 +20,7 @@ namespace UIFrame
         {
             _canvasGroup = GetComponent<CanvasGroup>();
             //修改模块的名称
-            gameObject.name = gameObject.name.Substring(0, gameObject.name.LastIndexOf("(Clone)"));
+            gameObject.name = gameObject.name.Remove(gameObject.name.Length - "(Clone)".Length);
             //获得所有子对象
             allChild = GetComponentsInChildren<Transform>();
             //给所有可用的UI元件添加行为
@@ -80,6 +80,7 @@ namespace UIFrame
         public virtual void OnEnter()
         {
             _canvasGroup.blocksRaycasts = true;
+            transform.SetSiblingIndex(transform.parent.childCount-1);
         }
 
         /// <summary>

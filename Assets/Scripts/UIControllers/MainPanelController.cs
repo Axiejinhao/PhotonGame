@@ -121,6 +121,13 @@ public class MainPanelController : UIControllerBase
 
     private void JoinLobbyBtnClick()
     {
+        string playerName = crtModule.FindCurrentModuleWidget("PlayerNameInputField_F").GetInputFieldText();
+        if (playerName == "")
+        {
+            playerName = "Player" + Random.Range(100, 1000);
+        }
+        PhotonNetwork.NickName = playerName;
+        
         if (!PhotonNetwork.InLobby)
         {
             PhotonNetwork.JoinLobby();

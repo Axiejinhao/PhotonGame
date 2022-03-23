@@ -71,6 +71,7 @@ namespace UIFrame
             GameObject crtModuleObj = GameObject.Instantiate(prefab);
             //设置父对象为画布
             crtModuleObj.transform.SetParent(_canvas, false);
+            crtModuleObj.transform.SetSiblingIndex(0);
             //返回组件
             return crtModuleObj.GetComponent<UIModuleBase>();
         }
