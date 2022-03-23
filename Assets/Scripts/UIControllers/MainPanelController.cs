@@ -35,16 +35,22 @@ public class MainPanelController : UIControllerBase
         crtModule.FindCurrentModuleWidget("Hero01Button_F").AddOnClickListener(() =>
         {
             SelectClickEvent("Hero01Button_F");
+            //标记当前英雄选择的编号
+            HumanGameManager.Instance.selectedHeroIndex = 1;
         });
 
         crtModule.FindCurrentModuleWidget("Hero02Button_F").AddOnClickListener(() =>
         {
             SelectClickEvent("Hero02Button_F");
+            //标记当前英雄选择的编号
+            HumanGameManager.Instance.selectedHeroIndex = 2;
         });
 
         crtModule.FindCurrentModuleWidget("Hero03Button_F").AddOnClickListener(() =>
         {
             SelectClickEvent("Hero03Button_F");
+            //标记当前英雄选择的编号
+            HumanGameManager.Instance.selectedHeroIndex = 3;
         });
 
         //创建房间按钮事件

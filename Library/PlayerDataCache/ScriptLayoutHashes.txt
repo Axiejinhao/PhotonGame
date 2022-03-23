@@ -3,6 +3,7 @@ PlayerPath?
 F:/Unity3D/Unity2017.4.20f2/PhotonGame/Demo.exe
 SceneListBegin?
 Assets/Scenes/LobbyScene.unity
+Assets/Scenes/CompleteMainScene.unity
 SceneListEnd?
 501888fb5d0cecdd7c7e87c84035d44e Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.PlayerListCell
 05524b8f659e7bfe5756d1335fec24ba PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PunTeams
@@ -169,6 +170,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.RoomBehaviour
 2a9d553d15b6cd1b42709e3816907960 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Forms.CreateRoomUiForm
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.AutoSyncSceneToggle
 7eee4e9fc1df5c1aae7c0356103363ec Assembly-CSharp.dll:Photon.Pun.Demo.SlotRacer.PlayerControl
@@ -423,6 +425,7 @@ c3a9e82914d368e0b53a5de37fb3627a Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Cur
 d9a45f500670681f30ff59a69a580fa0 Assembly-CSharp.dll:Photon.Pun.Demo.Procedural.WorldGenerator
 647c55fbaf51d7e66eed7cb525fded3d Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.Spaceship
 37744cb43f57f2d3767fd30d0449bd0d Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Forms.ConnectToRegionUIForm
+2a70ba3dcc280853a2d1a54caece1edf Assembly-CSharp.dll:.HumanGameManager
 6eb19a2e1468cdb456ab6ccbe83c51c7 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.BoolInputField
 870f3d295f32cee945162e235cf6bc08 Assembly-CSharp.dll:.PlayerBehaviour
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.InfoPanelModule
@@ -466,5 +469,5 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.RoomBehaviour
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.HumanGameManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GameController
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Locolization.LocalizationText

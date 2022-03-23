@@ -56,7 +56,6 @@ GameObject:
   - component: {fileID: 114339026083858778}
   - component: {fileID: 195728972314703912}
   - component: {fileID: 136092103175083552}
-  - component: {fileID: 114451793299191776}
   m_Layer: 9
   m_Name: human_archer_Rig
   m_TagString: Player
@@ -926,20 +925,6 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
---- !u!114 &114451793299191776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132075950187136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3467dd4e2253d4dc18d061e5f2e671c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 12
-  moveSpeed: 3
-  turnSpeed: 10
 --- !u!114 &114555609360883172
 MonoBehaviour:
   m_ObjectHideFlags: 1

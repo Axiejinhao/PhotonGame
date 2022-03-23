@@ -11,6 +11,7 @@ namespace UIFrame
         public const string PanelConfigPath = "Configuration/UIPanelConfig";
         public const string LocalizationConfigPath = "Configuration/UILanguageTextConfig";
         public const string WidgetConfigPath = "Configuration/UIWidgetConfig";
+        public const string HeroConfigPath = "Configuration/HeroConfig";
         #endregion
 
         #region Scene ID

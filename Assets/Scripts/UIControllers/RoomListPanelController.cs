@@ -19,25 +19,8 @@ public class RoomListPanelController : UIControllerBase
 
     public void UpdateRoomList(List<RoomInfo> roomInfos)
     {
-        //this.roomInfos = roomInfos;
+        this.roomInfos = roomInfos;
         
-        //动态管理
-        foreach (var item in roomInfos)
-        {
-            //如果变化的原因是，有一个房间没人了
-            if (item.RemovedFromList || item.PlayerCount == 0)
-            {
-                this.roomInfos.Remove(item);
-                Debug.Log("-");
-            }
-            //如果变化的原因是，有新房间创建
-            else
-            {
-                this.roomInfos.Add(item);
-                Debug.Log("+");
-            }
-        }
-        Debug.Log(this.roomInfos.Count);
         UpdateRoomListUI();
     }
 

@@ -13,9 +13,11 @@ namespace UIFrame
             panelDataDic = new Dictionary<int, Dictionary<string, string>>();
             localizationDic = new Dictionary<int, Dictionary<string, string[]>>();
             widgetDataDic = new Dictionary<int, Dictionary<string, string>>();
+            heroDataDic = new Dictionary<int, Dictionary<int, string>>();
             ParsePanelData();
             ParseLocalizationData();
             ParseWidgetData();
+            ParseHeroData();
         }
 
         #region Saved Structure
@@ -35,36 +37,15 @@ namespace UIFrame
         //Widget解析后的数据(字典版)
         private Dictionary<int, Dictionary<string, string>> widgetDataDic;
         
+        //Hero解析后的数据
+        private JsonHeroModel heroDate;
+        //Hero解析后的数据(字典版)
+        private Dictionary<int, Dictionary<int, string>> heroDataDic;
+
         #endregion
 
         #region Json Parse
 
-        /// <summary>
-        /// 解析动态元件数据
-        /// </summary>
-        private void ParseWidgetData()
-        {
-            //获取配置文本的资源
-            TextAsset widgetConfig = AssetsManager.Instance.GetAsset(SystemDefine.WidgetConfigPath) as TextAsset;
-            //将Panel的配置文件进行解析
-            widgetDate = JsonUtility.FromJson<JsonWidgetsModel>(widgetConfig.text);
-
-            //将widgetData转化为字典型
-            for (int i = 0; i < widgetDate.AllData.Length; i++)
-            {
-                //创建一个字典
-                Dictionary<string, string> crtDic = new Dictionary<string, string>();
-                //给新建的字典赋值
-                for (int j = 0; j < widgetDate.AllData[i].Data.Length; j++)
-                {
-                    crtDic.Add(widgetDate.AllData[i].Data[j].WidgetName,
-                        widgetDate.AllData[i].Data[j].WidgetPath);
-                }
-                //添加一个场景ID和一个字典
-                widgetDataDic.Add(i, crtDic);
-            }
-        }
-        
         /// <summary>
         /// Json解析Panel
         /// </summary>
@@ -116,6 +97,59 @@ namespace UIFrame
                 localizationDic.Add(i, crtDic);
             }
         }
+        
+        /// <summary>
+        /// 解析动态元件数据
+        /// </summary>
+        private void ParseWidgetData()
+        {
+            //获取配置文本的资源
+            TextAsset widgetConfig = AssetsManager.Instance.GetAsset(SystemDefine.WidgetConfigPath) as TextAsset;
+            //将Panel的配置文件进行解析
+            widgetDate = JsonUtility.FromJson<JsonWidgetsModel>(widgetConfig.text);
+
+            //将widgetData转化为字典型
+            for (int i = 0; i < widgetDate.AllData.Length; i++)
+            {
+                //创建一个字典
+                Dictionary<string, string> crtDic = new Dictionary<string, string>();
+                //给新建的字典赋值
+                for (int j = 0; j < widgetDate.AllData[i].Data.Length; j++)
+                {
+                    crtDic.Add(widgetDate.AllData[i].Data[j].WidgetName,
+                        widgetDate.AllData[i].Data[j].WidgetPath);
+                }
+                //添加一个场景ID和一个字典
+                widgetDataDic.Add(i, crtDic);
+            }
+        }
+        
+        /// <summary>
+        /// 解析英雄数据
+        /// </summary>
+        private void ParseHeroData()
+        {
+            //获取配置文本的资源
+            TextAsset heroConfig = AssetsManager.Instance.GetAsset(SystemDefine.HeroConfigPath) as TextAsset;
+            //将Hero的配置文件进行解析
+            heroDate = JsonUtility.FromJson<JsonHeroModel>(heroConfig.text);
+
+            //将heroData转化为字典型
+            for (int i = 0; i < heroDate.AllData.Length; i++)
+            {
+                //创建一个字典
+                Dictionary<int, string> crtDic = new Dictionary<int, string>();
+                //给新建的字典赋值
+                for (int j = 0; j < heroDate.AllData[i].Data.Length; j++)
+                {
+                    crtDic.Add(heroDate.AllData[i].Data[j].HeroIndex,
+                        heroDate.AllData[i].Data[j].HeroPath);
+                }
+                //添加一个场景ID和一个字典
+                heroDataDic.Add(i, crtDic);
+            }
+        }
+        
 
         #endregion
 
@@ -177,6 +211,25 @@ namespace UIFrame
             }
             //如果ID和资源名称都存在
             return widgetDataDic[sceneID][widgetName];
+        }
+        
+        /// <summary>
+        /// 通过Hero资源名称返回Hero资源路径
+        /// </summary>
+        /// <param name="heroName"></param>
+        /// <returns></returns>
+        public string FindHeroPath(int heroIndex, int sceneID = (int)SystemDefine.SceneID.MainScene)
+        {
+            if (!heroDataDic.ContainsKey(sceneID))
+            {
+                return null;
+            }
+            if (!heroDataDic[sceneID].ContainsKey(heroIndex))
+            {
+                return null;
+            }
+            //如果ID和资源名称都存在
+            return heroDataDic[sceneID][heroIndex];
         }
         
         #endregion

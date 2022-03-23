@@ -738,10 +738,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1510813699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6611ea708907447d6ac80a8f283a6f75, type: 3}
+  m_Script: {fileID: 11500000, guid: eaa959edafc418345b60b630635e3fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasInit: 0
 --- !u!1 &1771596986
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +749,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1771596987}
-  - component: {fileID: 1771596988}
   m_Layer: 0
   m_Name: CameraRig
   m_TagString: Untagged
@@ -772,18 +770,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1771596988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1771596986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d80bf2b4597249a8a5d4bcb97052376, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
 --- !u!1 &2043816356
 GameObject:
   m_ObjectHideFlags: 0
