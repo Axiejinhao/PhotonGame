@@ -34,4 +34,5 @@ MonoBehaviour:
   - DemoRPC
   - ChangeBool
   - SendTarget
+  - Sendtarget
   DisableAutoOpenWizard: 1

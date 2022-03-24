@@ -26,8 +26,7 @@ public class GameController : MonoBehaviourPunCallbacks
         SetPlayerLoaded();
         Test();
     }
-
-    [Test]
+    
     private void Test()
     {
         if (!PhotonNetwork.IsMasterClient)

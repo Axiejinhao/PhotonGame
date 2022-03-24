@@ -11,6 +11,8 @@ public class HumanGameManager : MonoBehaviour {
     public static HumanGameManager Instance;
     //英雄编号
     public int selectedHeroIndex = 1;
+    //当前英雄
+    public Transform currentHero;
     private void Awake()
     {
         Instance = this;

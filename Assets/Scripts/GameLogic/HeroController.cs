@@ -7,13 +7,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
 
-public class HeroController : MonoBehaviourPunCallbacks
+public class HeroController : MonoBehaviourPunCallbacks , IPunObservable
 {
     [Header("攻击范围")]
     public float attackRange = 2f;
 
     [Header("转身速度")] 
-    public float turnSpeed = 10f;
+    public float turnSpeed = 50f;
 
     [Header("移动速度")] 
     public float moveSpeed = 3.5f;
@@ -21,6 +21,8 @@ public class HeroController : MonoBehaviourPunCallbacks
     private RaycastHit hit;
     private NavMeshAgent nav;
     private Animator ani;
+    //攻击特效脚本
+    private triggerProjectile _triggerProjectile;
 
     private PhotonView targetHero;
 
@@ -28,13 +30,19 @@ public class HeroController : MonoBehaviourPunCallbacks
     {
         nav = GetComponent<NavMeshAgent>();
         ani = GetComponent<Animator>();
+        _triggerProjectile = GetComponent<triggerProjectile>();
     }
 
     private void Start()
     {
         //设置制动距离
-        nav.stoppingDistance = attackRange;
+        nav.stoppingDistance = 0;
         nav.speed = moveSpeed;
+        if (photonView.IsMine)
+        {
+            //标记英雄
+            HumanGameManager.Instance.currentHero = transform;
+        }
     }
 
     private void Update()
@@ -73,6 +81,7 @@ public class HeroController : MonoBehaviourPunCallbacks
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
                     targetHero = null;
+                    nav.stoppingDistance = 0;
                     GameObject tempParticle = Instantiate(AssetsManager.Instance.GetAsset(SystemDefine.ClickParticlePath)) as GameObject;
                     //设置位置
                     tempParticle.transform.position = hit.point;
@@ -80,7 +89,10 @@ public class HeroController : MonoBehaviourPunCallbacks
                 }
                 else
                 {
+                    nav.stoppingDistance = attackRange;
                     targetHero = hit.collider.GetComponent<PhotonView>();
+                    //同步给其他终端
+                    photonView.RPC("SendTarget",RpcTarget.All,targetHero.ViewID);
                 }
 
                 SetHeroDestination(hit.point);
@@ -143,11 +155,45 @@ public class HeroController : MonoBehaviourPunCallbacks
         //玩家指向目标的方向向量
         Vector3 dir = target - transform.position;
         float angle = Vector3.Angle(dir, transform.forward);
-        if (angle > 90)
+        if (angle > 60)
         {
             nav.velocity = Vector3.zero;
         }
         //设置导航目标
         nav.SetDestination(target);
+    }
+
+    [PunRPC]
+    public void SendTarget(int viewID)
+    {
+        _triggerProjectile.targetPoint = PhotonView.Find(viewID).transform;
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        return;
+        if (stream.IsWriting)
+        {
+            if (targetHero != null)
+            {
+                //写入viewID
+                stream.SendNext(targetHero.ViewID);
+                _triggerProjectile.targetPoint = targetHero.transform;
+            }
+        }
+        
+        else if (stream.IsReading)
+        {
+            try
+            {
+                //读取viewID  
+                int viewID = (int)stream.ReceiveNext();
+                _triggerProjectile.targetPoint = PhotonView.Find(viewID).transform;
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+        }
     }
 }
