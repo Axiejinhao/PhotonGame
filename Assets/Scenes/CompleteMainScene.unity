@@ -439,6 +439,46 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 92ebf232461ebc342884766124202572, type: 2}
+    - target: {fileID: 170312, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 158744, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 152192, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 192304, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 178672, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 117694, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 185460, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 104954, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 118240, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 119348, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 312c52d27be2d2d42acea3ccebc4694b, type: 2}
   m_IsPrefabParent: 0
@@ -741,6 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa959edafc418345b60b630635e3fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasInit: 0
 --- !u!1 &1771596986
 GameObject:
   m_ObjectHideFlags: 0

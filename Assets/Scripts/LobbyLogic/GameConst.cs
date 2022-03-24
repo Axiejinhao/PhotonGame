@@ -14,6 +14,19 @@ public static class GameConst
     public const string INITHERO_PROPERTY = "Inithero";
     
     #endregion
+
+    #region Visual Axis & Button
+
+    public const string HEROMOVE = "HeroMove";
+
+    #endregion
+
+    #region Animator Parameters
+
+    public static int SPEED_PARAM;
+    public static int PLAYERATTACK_PARAM;
+
+    #endregion
     
     #region PlayerColors
 
@@ -36,6 +49,9 @@ public static class GameConst
             Color.yellow,
             Color.cyan
         };
+
+        SPEED_PARAM = Animator.StringToHash("Speed");
+        PLAYERATTACK_PARAM = Animator.StringToHash("PlayerAttack");
     }
 
     #endregion

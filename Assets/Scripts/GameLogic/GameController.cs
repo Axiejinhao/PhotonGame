@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 using Photon.Realtime;
@@ -13,18 +14,35 @@ using UnityEngine.SceneManagement;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 
-public class GameController : MonoBehaviourPunCallbacks 
+public class GameController : MonoBehaviourPunCallbacks
 {
+    //是否创建过英雄
+    public bool hasInit = false;
     private void Start()
     {
+        //设置每秒发送包数
+        PhotonNetwork.SendRate = 30;
         //设置玩家加载属性成功
         SetPlayerLoaded();
-        //房主检测是否所有玩家都加载成功
-        CheckAllPlayerLoaded();
+        Test();
     }
 
+    [Test]
+    private void Test()
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+
+        PhotonNetwork.InstantiateSceneObject(JsonDataManager.Instance.FindHeroPath(1),
+            Vector3.back*2, Quaternion.identity);
+    }
+    
     private void InitHero()
     {
+        //已经创建过英雄
+        hasInit = true;
         GameObject heroObj = PhotonNetwork.Instantiate(
             JsonDataManager.Instance.FindHeroPath(
                 HumanGameManager.Instance.selectedHeroIndex),
@@ -87,7 +105,7 @@ public class GameController : MonoBehaviourPunCallbacks
             canInit = false;
         }
 
-        if ((bool) canInit)
+        if ((bool) canInit && !hasInit)
         {
             //每个玩家生成各自的英雄
             InitHero();   
