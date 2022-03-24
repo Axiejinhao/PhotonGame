@@ -939,7 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 12
   turnSpeed: 50
-  moveSpeed: 6
+  moveSpeed: 4
 --- !u!114 &114555609360883172
 MonoBehaviour:
   m_ObjectHideFlags: 1

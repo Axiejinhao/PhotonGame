@@ -33,14 +33,13 @@ b646916c78b48f3208cda1a75aff4d8f Assembly-CSharp.dll:.ChatGui
 b0e6f931f4c3163843d44b8ebc9f254a Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.LayoutElementMatchSize
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PEDestoryTimed
 4b46cecd59f2a619ae8f720821af6f33 Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.PlayerAnimatorManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Locolization.LocalizationText
 c3a9e82914d368e0b53a5de37fb3627a Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.CurrentRoomIsOpenProperty
 6fce0feadba7642a361e87ebfcfe753e PhotonUnityNetworking.dll:Photon.Pun.PhotonAnimatorView
 28b9635dada29d5334975a74e5429ae3 Assembly-CSharp.dll:Photon.Chat.UtilityScripts.TextToggleIsOnTransition
-5c4f9e56bd9cd334335c501ab4489b28 Assembly-CSharp.dll:Ricimi.Popup
 28b9635dada29d5334975a74e5429ae3 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.TextToggleIsOnTransition
 05524b8f659e7bfe5756d1335fec24ba PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.ButtonInsideScrollList
 303885442d7329386fc00ef7a96e035b Assembly-CSharp.dll:.ETFXSceneManager
-cf6cf67cb2089e990f9b63ebed904586 Assembly-CSharp.dll:Ricimi.BasicButton
 05524b8f659e7bfe5756d1335fec24ba PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.CullingHandler
 1ca5c8dc66d7df193309010a6f864080 Assembly-CSharp.dll:Photon.Pun.Demo.Hub.DemoHubManager
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -138,6 +137,7 @@ df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.T
 fdd536650e2914cfc956bbe5739244be Assembly-CSharp.dll:.WalkingOrc
 58bb83f23a38f1962bddf96033a5bc5d Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.AsteroidsGameManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MonoHelper
+6c0a211eabd5f1aa822e4922a523930d Assembly-CSharp.dll:.HeroController
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -153,7 +153,6 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-ccffc54138258c495dd5a0898ad94502 Assembly-CSharp.dll:Ricimi.PopupOpener
 5d578f6e8917faff01e7e2dc9f392ee7 PhotonUnityNetworking.dll:Photon.Pun.PhotonRigidbody2DView
 05524b8f659e7bfe5756d1335fec24ba PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnStartDelete
 1de5b0589e6fb98c8b8d7fcded724e3b PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.CullArea
@@ -288,6 +287,7 @@ fb2ac97018c2c9b8b721d1a47fc40206 Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.L
 2b1d0da300b926cf06210da11d914c76 Assembly-CSharp.dll:Photon.Chat.UtilityScripts.TextButtonTransition
 2b1d0da300b926cf06210da11d914c76 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.TextButtonTransition
 94bb057c26128702b0572b5a868a0f59 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.ToggleExpand
+a723fbedae099b288a2c2e28fddfb6d7 Assembly-CSharp.dll:.CameraFollow
 5dc04e627cc0a846ca76ba5fc502cf7b Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.NickNameField
 77df846db2a4ec525fbbd016bc4776ad Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.PlayerUI
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UIFrame.UIWidgetBase
@@ -309,7 +309,6 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.Bullet
 650c1e412dac0323d37ae3023565f947 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PointedAtGameObjectInfo
 71b949d44ebd93b1a54c5df9f2c45da5 Assembly-CSharp.dll:Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
-8ec94b2780e324ed558b27d759ada3b7 Assembly-CSharp.dll:Ricimi.Tooltip
 755add5ef3f03f1ba2f6bdb228dae24c Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyMainPanel
 227579410d588c18a5044caa228f447b Assembly-CSharp.dll:.LobbyManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Photon.Pun.Demo.Procedural.Cluster
@@ -325,7 +324,6 @@ e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 abe32a93cd37b12375c9475f8f38bec3 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PunTurnManager
 3761611aaa47c1f34b83032848b92c1a Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.RoomListEntry
 c3a9e82914d368e0b53a5de37fb3627a Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.ServerProperty
-5d00252711108bb67698f433c405f25b Assembly-CSharp.dll:Ricimi.SpriteSwapper
 e35d2d72f3ab1634d0425fd69b00dd29 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.PropertyCell
 9e0ef5bf862444b5dc48b5a99554ce7c UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
@@ -355,7 +353,6 @@ f671a42aea5f34fec6a4450a3668c615 Assembly-CSharp.dll:UnityEngine.PostProcessing.
 6b7f3b627f03aa2dae54ad0ecb0a7d7a PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PhotonLagSimulationGui
 05524b8f659e7bfe5756d1335fec24ba PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.EventSystemSpawner
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Ricimi.Transition
 5facd58f774e4892eb3aedd9c0c811be Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.PlayerListView
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Photon.Pun.Demo.Procedural.ProceduralController
 ec0082b40adf3b0930cd87250ffdbf1d PhotonRealtime.dll:Photon.Realtime.SupportLogger
@@ -367,6 +364,7 @@ cc391fcd7fb24987177e8a1a106bd812 PhotonUnityNetworking.dll:Photon.Pun.PhotonTran
 c3a9e82914d368e0b53a5de37fb3627a Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.IsConnectedAndReadyProperty
 7ff754a97722729b4d96961e46b4816e Assembly-CSharp.dll:EpicToonFX.ETFXLightFade
 3d5c617f7d99c8276ebe5e182dd0ef4b Assembly-CSharp.dll:.triggerProjectile
+8a7adab1a0776c12d6804a635c24df77 Assembly-CSharp.dll:.GameController
 d1755adc44fcb9e44c42a5889d35f7a0 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.MoveByKeys
 05524b8f659e7bfe5756d1335fec24ba PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.OnEscapeQuit
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Photon.Pun.Demo.PunBasics.PlayerNameInputField
@@ -425,12 +423,11 @@ c3a9e82914d368e0b53a5de37fb3627a Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Cur
 d9a45f500670681f30ff59a69a580fa0 Assembly-CSharp.dll:Photon.Pun.Demo.Procedural.WorldGenerator
 647c55fbaf51d7e66eed7cb525fded3d Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.Spaceship
 37744cb43f57f2d3767fd30d0449bd0d Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Forms.ConnectToRegionUIForm
-2a70ba3dcc280853a2d1a54caece1edf Assembly-CSharp.dll:.HumanGameManager
+43015b5b30631c9bef93a20698bc3fa3 Assembly-CSharp.dll:.HumanGameManager
 6eb19a2e1468cdb456ab6ccbe83c51c7 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.BoolInputField
 870f3d295f32cee945162e235cf6bc08 Assembly-CSharp.dll:.PlayerBehaviour
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.InfoPanelModule
 5d6b6d35cd1f8c678720beec79b50b33 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.CountdownTimer
-7fc24538faf35d45c52c6dd212b105b2 Assembly-CSharp.dll:Ricimi.SceneTransition
 fb262b2ac14e89c3b1fd066d3ef7cca0 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.Forms.UserIdUiForm
 c3a9e82914d368e0b53a5de37fb3627a Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.CountOfRoomsProperty
 554c18f8fffc91699e4426d05cdb16da Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.LobbyTopPanel
@@ -469,5 +466,3 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GameController
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Locolization.LocalizationText

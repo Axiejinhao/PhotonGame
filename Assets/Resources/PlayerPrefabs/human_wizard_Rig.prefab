@@ -955,7 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 10
   turnSpeed: 50
-  moveSpeed: 8
+  moveSpeed: 5
 --- !u!136 &136182839734470240
 CapsuleCollider:
   m_ObjectHideFlags: 1

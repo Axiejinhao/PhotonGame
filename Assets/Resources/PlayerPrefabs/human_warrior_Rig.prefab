@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 2
   turnSpeed: 50
-  moveSpeed: 10
+  moveSpeed: 6
 --- !u!114 &114638181282284594
 MonoBehaviour:
   m_ObjectHideFlags: 1

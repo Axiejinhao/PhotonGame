@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
-using Photon.Pun;
-using Photon.Pun.Demo.PunBasics;
+﻿using Photon.Pun;
 using Photon.Realtime;
 using UIFrame;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AI;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
-
 
 public class GameController : MonoBehaviourPunCallbacks
 {
@@ -24,7 +14,7 @@ public class GameController : MonoBehaviourPunCallbacks
         PhotonNetwork.SendRate = 30;
         //设置玩家加载属性成功
         SetPlayerLoaded();
-        Test();
+        // Test();
     }
     
     private void Test()
@@ -45,7 +35,7 @@ public class GameController : MonoBehaviourPunCallbacks
         GameObject heroObj = PhotonNetwork.Instantiate(
             JsonDataManager.Instance.FindHeroPath(
                 HumanGameManager.Instance.selectedHeroIndex),
-            new Vector3(0,0,PhotonNetwork.LocalPlayer.ActorNumber*2), Quaternion.identity);
+            new Vector3(PhotonNetwork.LocalPlayer.ActorNumber*2,0,0), Quaternion.identity);
     }
     
     /// <summary>

@@ -57,7 +57,7 @@ public class HeroController : MonoBehaviourPunCallbacks , IPunObservable
             return;
             
         }
-       
+
         CheckArrive(); 
         HeroInput();
         CheckTargetHeroInRange();
@@ -91,8 +91,11 @@ public class HeroController : MonoBehaviourPunCallbacks , IPunObservable
                 {
                     nav.stoppingDistance = attackRange;
                     targetHero = hit.collider.GetComponent<PhotonView>();
-                    //同步给其他终端
-                    photonView.RPC("SendTarget",RpcTarget.All,targetHero.ViewID);
+                    if (_triggerProjectile != null)
+                    {
+                        //同步给其他终端
+                        photonView.RPC("SendTarget",RpcTarget.All,targetHero.ViewID);
+                    }
                 }
 
                 SetHeroDestination(hit.point);
@@ -127,8 +130,10 @@ public class HeroController : MonoBehaviourPunCallbacks , IPunObservable
         if (nav.remainingDistance - nav.stoppingDistance <= 0.05f)
         {
             ani.SetFloat(GameConst.SPEED_PARAM, 0);
+            
             if (targetHero != null)
             {
+                nav.updateRotation = true;
                 //转向目标
                 RotateTo(targetHero.transform.position);
                 //攻击
@@ -136,6 +141,7 @@ public class HeroController : MonoBehaviourPunCallbacks , IPunObservable
             }
             else
             {
+                nav.updateRotation = false;
                 ani.SetBool(GameConst.PLAYERATTACK_PARAM, false);
             }
         }
@@ -150,6 +156,7 @@ public class HeroController : MonoBehaviourPunCallbacks , IPunObservable
 
     private void SetHeroDestination(Vector3 target)
     {
+        nav.updateRotation = true;
         //设置动画参数
         ani.SetFloat(GameConst.SPEED_PARAM, 1);
         //玩家指向目标的方向向量
@@ -166,6 +173,10 @@ public class HeroController : MonoBehaviourPunCallbacks , IPunObservable
     [PunRPC]
     public void SendTarget(int viewID)
     {
+        if (_triggerProjectile == null)
+        {
+            return;
+        }
         _triggerProjectile.targetPoint = PhotonView.Find(viewID).transform;
     }
 
